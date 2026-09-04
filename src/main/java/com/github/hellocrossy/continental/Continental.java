@@ -69,6 +69,7 @@ public class Continental {
         PackOutput packOutput = dataGenerator.getPackOutput();
         dataGenerator.addProvider(event.includeClient(), new ContinentalBlockModels(packOutput, event.getExistingFileHelper()));
         dataGenerator.addProvider(event.includeClient(), new ContinentalItemModels(packOutput, event.getExistingFileHelper()));
+        dataGenerator.addProvider(event.includeClient(), new ContinentalBlockStates(packOutput, event.getExistingFileHelper()));
         ContinentalTagsProviders.ContinentalBlockTagsProvider blockTagsProvider = new ContinentalTagsProviders.ContinentalBlockTagsProvider(packOutput, event.getLookupProvider(), event.getExistingFileHelper());
         dataGenerator.addProvider(event.includeServer(), blockTagsProvider);
         dataGenerator.addProvider(event.includeServer(), new ContinentalTagsProviders.ContinentalItemTagsProvider(packOutput, event.getLookupProvider(), blockTagsProvider, event.getExistingFileHelper()));
