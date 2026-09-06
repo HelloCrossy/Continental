@@ -9,6 +9,7 @@ import com.github.hellocrossy.continental.sounds.ContinentalSounds;
 import net.minecraft.client.model.geom.ModelLayerLocation;
 import net.minecraft.client.model.geom.builders.LayerDefinition;
 import net.minecraft.data.DataGenerator;
+import net.minecraft.data.DataProvider;
 import net.minecraft.data.PackOutput;
 import net.minecraft.data.loot.LootTableProvider;
 import net.minecraft.util.Tuple;
@@ -70,6 +71,7 @@ public class Continental {
         dataGenerator.addProvider(event.includeClient(), new ContinentalBlockModels(packOutput, event.getExistingFileHelper()));
         dataGenerator.addProvider(event.includeClient(), new ContinentalItemModels(packOutput, event.getExistingFileHelper()));
         dataGenerator.addProvider(event.includeClient(), new ContinentalBlockStates(packOutput, event.getExistingFileHelper()));
+        dataGenerator.addProvider(event.includeServer(), (DataProvider.Factory<ContinentalBiomeModifiers>) output -> new ContinentalBiomeModifiers(output, event.getLookupProvider()));
         ContinentalTagsProviders.ContinentalBlockTagsProvider blockTagsProvider = new ContinentalTagsProviders.ContinentalBlockTagsProvider(packOutput, event.getLookupProvider(), event.getExistingFileHelper());
         dataGenerator.addProvider(event.includeServer(), blockTagsProvider);
         dataGenerator.addProvider(event.includeServer(), new ContinentalTagsProviders.ContinentalItemTagsProvider(packOutput, event.getLookupProvider(), blockTagsProvider, event.getExistingFileHelper()));
