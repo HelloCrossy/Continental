@@ -20,6 +20,9 @@ build
 # other
 eclipse
 run
+lib
+logs
+src/generated/resources/.cache
 .DS_Store
 
 # Files from Forge MDK
